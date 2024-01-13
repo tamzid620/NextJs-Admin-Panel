@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Link from 'next/link'
+import Script from 'next/script'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,12 +14,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <nav>
-        <a href='/'>Home</a>
+        <nav className='text-2xl flex gap-5 bg-gray-300'>
+        <a href='/'>Home</a> 
+        <a href='/Profile'>Profile</a>
+        <a href='/AdminPanel'>AdminPanel</a>
         </nav>
         {children}
-        <footer>Footer</footer>
+        <footer className='text-2xl bg-gray-300'>Footer</footer>
         </body>
+      <Script src="/src/Hooks/AdminPanel.js"></Script>
     </html>
   )
 }
