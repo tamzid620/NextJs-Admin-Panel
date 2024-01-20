@@ -3,7 +3,7 @@ import React from 'react';
 const Profile = () => {
     return (
         <div>
-            <h2 className='text-3xl text-amber-500 font-bold'>Profile</h2>
+            <h1>Profile</h1>
         </div>
     );
 };
