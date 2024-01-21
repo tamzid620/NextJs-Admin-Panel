@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-const navLinks = [
+const sideLinks = [
   {
     path: "/dashboard",
     title: "Dashboard",
@@ -18,14 +18,14 @@ const navLinks = [
 
 const Sidebar = () => {
   return (
-    <aside className="mr-10">
-      <h1 className="text-green-500 text-3xl font-semibold">Dashboard</h1>
+<aside className="mr-10">
+      <h1 className="text-green-500 text-3xl font-semibold bg-slate-200">Dashboard</h1>
       <ul>
-        {navLinks.map(({ path, title }) => {
+        {sideLinks.map(({ path, title }) => (
           <li key={path}>
-            <Link>{title}</Link>
-          </li>;
-        })}
+            <Link href={path}>{title}</Link>
+          </li>
+        ))}
       </ul>
     </aside>
   );
