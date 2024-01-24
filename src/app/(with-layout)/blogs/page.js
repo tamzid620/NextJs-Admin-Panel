@@ -1,7 +1,11 @@
-export const metadata = {
-  title: "Blogs | Next Hero",
-  description: "Next Hero",
-};
+'use client' ;
+
+
+import Link from "next/link";
+// import { useRouter } from "next/navigation";
+import React from "react";
+
+
 
 const blogs = [
   {
@@ -31,10 +35,11 @@ const blogs = [
   },
 ];
 
-import Link from "next/link";
-import React from "react";
 
 const Blogs = () => {
+
+const router = useRouter() ;
+
   return (
     <div className="container mx-auto">
       {blogs.map(({ id, year, title }) => (
@@ -50,6 +55,14 @@ const Blogs = () => {
          >
           {title}
         </Link>
+
+        // <button 
+        // className="block border border-red-500 p-2 my-2" 
+        // onClick={() => router.replace( `blogs/${year}/${id} ? title={title}`) }
+        //  key={id}
+        //  >
+        //   {title}
+        // </button>
       ))}
     </div>
   );
