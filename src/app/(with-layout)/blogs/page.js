@@ -1,4 +1,3 @@
-'use client' ;
 
 
 import Link from "next/link";
@@ -6,63 +5,20 @@ import Link from "next/link";
 import React from "react";
 
 
-
-const blogs = [
-  {
-    id: 1,
-    year: 2016,
-    title: "title 1",
-  },
-  {
-    id: 2,
-    year: 2016,
-    title: "title 2",
-  },
-  {
-    id: 3,
-    year: 2016,
-    title: "title 3",
-  },
-  {
-    id: 4,
-    year: 2016,
-    title: "title 4",
-  },
-  {
-    id: 5,
-    year: 2016,
-    title: "title 5",
-  },
-];
-
-
-const Blogs = () => {
-
-const router = useRouter() ;
+// eslint-disable-next-line @next/next/no-async-client-component
+const Blogs = async () => {
+  // const router = useRouter() ;
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const data = await res.json();
 
   return (
     <div className="container mx-auto">
-      {blogs.map(({ id, year, title }) => (
-        <Link 
-        className="block border border-red-500 p-2 my-2" 
-        href={{
-            pathname:`blogs/${year}/${id}`,
-            query: {
-                title: title
-            }
-        }}
-         key={id}
-         >
-          {title}
-        </Link>
-
-        // <button 
-        // className="block border border-red-500 p-2 my-2" 
-        // onClick={() => router.replace( `blogs/${year}/${id} ? title={title}`) }
-        //  key={id}
-        //  >
-        //   {title}
-        // </button>
+      {data.map(({ id, body, title }) => (
+        <div  key={id} className="border border-red-500 p-2 my-2">
+          <h2 className="text-2xl"> {id}. {title} </h2>
+        <p>{body}</p>
+        <Link className="block bg-slate-400" href={`blogs/${id}`}> Details </Link>
+        </div>
       ))}
     </div>
   );
