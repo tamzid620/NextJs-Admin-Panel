@@ -1,6 +1,7 @@
 import Image from "next/image";
 import img1 from "../../../public/images/peakpx.jpg";
 import img2 from "../../../public/images/wallpaperflare.com_wallpaper.jpg";
+import Categories from "@/Components/HomePage/Categories";
 
 const Home = () => {
   return (
@@ -22,6 +23,9 @@ const Home = () => {
           alt=""
         />
       </div>
+
+{/* Categories section  */}
+        <Categories/>
     </main>
   );
 };

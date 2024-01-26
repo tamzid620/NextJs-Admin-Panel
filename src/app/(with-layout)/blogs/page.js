@@ -10,11 +10,11 @@ import React from "react";
 const Blogs = async () => {
   // const router = useRouter() ;
 
-  const data = await loadBlogData() ;
+  const blogs = await loadBlogData() ;
 
   return (
     <div className="container mx-auto">
-      {data.map(({ id, body, title }) => (
+      {blogs.map(({ id, body, title }) => (
         <div  key={id} className="border border-red-500 p-2 my-2">
           <h2 className="text-2xl"> {id}. {title} </h2>
         <p>{body}</p>
